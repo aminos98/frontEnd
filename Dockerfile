@@ -12,6 +12,7 @@ COPY /dist/employeemanagerapp /usr/share/nginx/html
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
 # Expose the default Nginx port
+
 EXPOSE 80
 
 
