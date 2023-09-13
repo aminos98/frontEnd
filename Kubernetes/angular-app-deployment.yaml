@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-app-deployment
+  labels:
+    app: angular-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-app
+  template:
+    metadata:
+      labels:
+        app: angular-app
+    spec:
+      containers:
+      - name: angular-app
+        image: kuveahmedamin1998/angular-app:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: API_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              name: employee-configmap
+              key: API_BASE_URL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-service
+spec:
+  selector:
+    app: angular-app 
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30000
+  type: LoadBalancer 
+
+
