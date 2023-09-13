@@ -7,7 +7,7 @@ RUN rm -rf /etc/nginx/conf.d/*
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built Angular app from the previous stage
-COPY /app/dist/employeemanagerapp /usr/share/nginx/html
+COPY /dist/employeemanagerapp /usr/share/nginx/html
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
