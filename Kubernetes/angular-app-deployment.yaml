@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: angular-app
-        image: kuveahmedamin1998/front-end:latest
+        image: ahmedamin1998/front-end:latest
         ports:
         - containerPort: 80
         env:
